@@ -1,0 +1,55 @@
+.details-con {
+  padding-top: 3rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.item-detail-form {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 650px;
+  width: 100%;
+}
+
+.item-detail-form input,
+.item-detail-form textarea {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.item-detail-form input {
+  height: 45px;
+}
+
+.item-detail-form textarea {
+  height: 120px;
+}
+
+.details-action-btn {
+  display: flex;
+  gap: 3rem;
+  align-self: flex-end;
+  margin-bottom: 2rem;
+}
+
+.delete-btn,
+.update-btn,
+.edit-btn {
+  color: #ffffff;
+}
+
+.edit-btn {
+  background-color: var(--blue-bg);
+}
+
+.update-btn {
+  background-color: var(--green-bg);
+}
+
+.delete-btn {
+  background-color: var(--red-bg);
+}
