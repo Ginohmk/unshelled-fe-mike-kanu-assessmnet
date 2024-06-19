@@ -42,17 +42,7 @@
   align-self: center;
 }
 
-.items__pagination button,
-.oops-btn {
+.items__pagination button {
   background-color: var(--blue-bg);
   color: #ffffff;
-}
-
-.error-oops {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  gap: 4rem;
-  align-items: center;
-  justify-content: center;
 }

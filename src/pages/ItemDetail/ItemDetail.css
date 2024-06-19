@@ -6,6 +6,12 @@
   gap: 2rem;
 }
 
+.main-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
 .item-detail-form {
   display: flex;
   flex-direction: column;

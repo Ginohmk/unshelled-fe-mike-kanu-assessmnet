@@ -165,3 +165,19 @@ textarea {
 [hidden] {
   display: none;
 }
+
+/* Utils */
+
+.error-oops {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.oops-btn {
+  background-color: var(--blue-bg);
+  color: #ffffff;
+}

@@ -7,6 +7,7 @@ import useFetchItem from '../../hooks/useFecthItem';
 import Loader from '../../components/Loader/Loader';
 import client from '../../axiosConfig';
 import toast from 'react-hot-toast';
+import isEmptyObject from '../../utils/isObjectEmpty';
 
 const ItemDetail = () => {
   const navigate = useNavigate();
@@ -26,6 +27,10 @@ const ItemDetail = () => {
   });
 
   const handleUpdateItem = () => {
+    if (!changed) {
+      toast.success('You can edit post now');
+    }
+
     // Only called when  changed state is true
     if (changed) {
       setPageLoader(true);
@@ -83,60 +88,76 @@ const ItemDetail = () => {
           className="back-arrow"
         />
 
-        <div className="details-action-btn">
-          <button
-            className={`${changed ? 'update-btn' : 'edit-btn'} btn `}
-            onClick={() => {
-              setCannotEdit(false);
-
-              // Only called when  changed state is true
-              handleUpdateItem();
-            }}
-          >
-            {changed ? 'Update' : 'Edit'}
-          </button>
-          <button className="btn delete-btn" onClick={() => handleDeleteItem()}>
-            Delete
-          </button>
-        </div>
         <div>
-          {item && (
-            <form
-              className="item-detail-form"
-              onSubmit={(event) => {
-                event.preventDefault();
+          {!isEmptyObject(item) && (
+            <div className="main-detail">
+              <div className="details-action-btn">
+                <button
+                  className={`${changed ? 'update-btn' : 'edit-btn'} btn `}
+                  onClick={() => {
+                    setCannotEdit(false);
 
-                handleUpdateItem();
-              }}
-            >
-              <input
-                type="text"
-                value={formData.title}
-                onChange={(e) => {
-                  setFormData((prevState) => ({
-                    ...prevState,
-                    title: e.target.value,
-                  }));
-                  setChanged(true);
-                }}
-                readOnly={cannotEdit}
-                required
-              />
+                    // Only called when  changed state is true
+                    handleUpdateItem();
+                  }}
+                >
+                  {changed ? 'Update' : 'Edit'}
+                </button>
+                <button
+                  className="btn delete-btn"
+                  onClick={() => handleDeleteItem()}
+                >
+                  Delete
+                </button>
+              </div>
 
-              <textarea
-                placeholder="Enter post"
-                value={formData.body}
-                onChange={(e) => {
-                  setFormData((prevState) => ({
-                    ...prevState,
-                    body: e.target.value,
-                  }));
-                  setChanged(true);
+              <form
+                className="item-detail-form"
+                onSubmit={(event) => {
+                  event.preventDefault();
+
+                  handleUpdateItem();
                 }}
-                readOnly={cannotEdit}
-                required
-              />
-            </form>
+              >
+                <input
+                  type="text"
+                  value={formData.title}
+                  onChange={(e) => {
+                    setFormData((prevState) => ({
+                      ...prevState,
+                      title: e.target.value,
+                    }));
+                    setChanged(true);
+                  }}
+                  readOnly={cannotEdit}
+                  required
+                />
+
+                <textarea
+                  placeholder="Enter post"
+                  value={formData.body}
+                  onChange={(e) => {
+                    setFormData((prevState) => ({
+                      ...prevState,
+                      body: e.target.value,
+                    }));
+                    setChanged(true);
+                  }}
+                  readOnly={cannotEdit}
+                  required
+                />
+              </form>
+            </div>
+          )}
+
+          {error && (
+            <div className="error-oops">
+              <h3>Oops an error occured</h3>
+
+              <button className="btn oops-btn" onClick={() => navigate('/')}>
+                Back to home
+              </button>
+            </div>
           )}
         </div>
       </div>
