@@ -1,5 +1,10 @@
-/* Normalize.css */
+/* Root Variable */
 
+:root {
+  --green-bg: #4caf50;
+}
+
+/* Normalize.css */
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
@@ -18,6 +23,23 @@ html {
 body {
   font-size: calc(16px + 0.03599);
   box-sizing: inherit;
+  background-color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+}
+
+.btn {
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+.container {
+  max-width: 1540px;
+  width: 95%;
+  margin: 0 auto;
 }
 
 h1,
@@ -101,17 +123,6 @@ button,
 select {
   /* 1 */
   text-transform: none;
-}
-
-/**
- * Correct the inability to style clickable types in iOS and Safari.
- */
-
-button,
-[type='button'],
-[type='reset'],
-[type='submit'] {
-  -webkit-appearance: button;
 }
 
 /**
