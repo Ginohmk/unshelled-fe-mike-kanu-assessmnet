@@ -2,6 +2,8 @@
 
 :root {
   --green-bg: #4caf50;
+  --blue-bg: #1e90ff;
+  --card-bg: #dcdcdc;
 }
 
 /* Normalize.css */
@@ -146,6 +148,13 @@ button:-moz-focusring,
 [type='reset']:-moz-focusring,
 [type='submit']:-moz-focusring {
   outline: 1px dotted ButtonText;
+}
+
+/* Disabled button styles */
+button:disabled {
+  background-color: #c0c0c0; /* Gray color for disabled button */
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
 textarea {
