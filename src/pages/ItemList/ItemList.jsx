@@ -8,7 +8,7 @@ import { FaArrowLeft } from 'react-icons/fa';
 
 const ItemList = () => {
   const navigate = useNavigate();
-  const { items, loading, error, setCurPage, setPageSize, curPage } =
+  const { items, loading, error, setCurPage, curPage } =
     useFetchItems('/posts');
 
   const handleNextPage = () => {

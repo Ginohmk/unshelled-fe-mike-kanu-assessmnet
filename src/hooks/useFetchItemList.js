@@ -34,13 +34,15 @@ const useFetchItems = (url, limit, page) => {
         });
     })();
 
+    window.scrollTo(0, 0);
+
     // Cleanup function to set isMounted to false when the component unmounts
     return () => {
       isMounted = false;
     };
   }, [url, curPage]);
 
-  return { items, loading, error, setCurPage, setPageSize, curPage };
+  return { items, loading, error, setCurPage, curPage };
 };
 
 export default useFetchItems;
